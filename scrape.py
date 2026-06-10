@@ -39,7 +39,22 @@ HEADERS = {
 #   method "pdf"  -> download bytes, save .pdf
 SOURCES = [
     {"name": "digitalocean-solid",          "method": "html", "url": "https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design"},
-    {"name": "sourcemaking-design-patterns","method": "html", "url": "https://sourcemaking.com/design_patterns"},
+    # The /design_patterns landing page is only a catalog of one-line blurbs, so
+    # we fetch the catalog plus individual pattern pages (spanning creational,
+    # structural, and behavioral patterns) for real content.
+    {"name": "sourcemaking-design-patterns","method": "html", "url": [
+        "https://sourcemaking.com/design_patterns",
+        "https://sourcemaking.com/design_patterns/singleton",
+        "https://sourcemaking.com/design_patterns/factory_method",
+        "https://sourcemaking.com/design_patterns/abstract_factory",
+        "https://sourcemaking.com/design_patterns/builder",
+        "https://sourcemaking.com/design_patterns/adapter",
+        "https://sourcemaking.com/design_patterns/decorator",
+        "https://sourcemaking.com/design_patterns/facade",
+        "https://sourcemaking.com/design_patterns/observer",
+        "https://sourcemaking.com/design_patterns/strategy",
+        "https://sourcemaking.com/design_patterns/command",
+    ]},
     # The /review/ landing page is only a table of contents, so we fetch the
     # substantive sub-pages and concatenate them into one document.
     {"name": "google-code-review",          "method": "html", "url": [
